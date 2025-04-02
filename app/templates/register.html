@@ -1,0 +1,45 @@
+<!-- register.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Roʻyxatdan oʻtish{% endblock %}
+
+{% block content %}
+<div class="uk-flex uk-flex-center">
+	<form method="post" class="uk-width-1-2 uk-background-muted uk-padding uk-border uk-form-stacked">
+		{{ form.hidden_tag() }}
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">Roʻyxatdan oʻtish</legend>
+			<div class="uk-margin">
+				{{ form.username.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.username(class="uk-input", placeholder="Foydalanuvchi nomingizni kiriting") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.email.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.email(class="uk-input", placeholder="Elektron pochtangizni kiriting") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.password.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.password(class="uk-input", placeholder="Parol yarating") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.confirm_password.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.confirm_password(class="uk-input", placeholder="Parolni tasdiqlang") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.submit(class="uk-button uk-button-primary") }}
+			</div>
+		</fieldset>
+		<p>Hisobingiz tayyormi? <a href="{{ url_for('login') }}">Kirish</a></p>
+	</form>
+</div>
+{% endblock %}
+

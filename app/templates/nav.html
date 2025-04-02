@@ -1,0 +1,37 @@
+<!-- nav.html -->
+
+<nav class="uk-navbar-container">
+	<div class="uk-container">
+		<div uk-navbar>
+			<div class="uk-navbar-left">
+				<a class="uk-navbar-item uk-logo" href="#">
+					<img src="{{ url_for('static', filename='cpu.png') }}" width="30" height="30">
+				</a>
+				<ul class="uk-navbar-nav">
+					<li class="{% if request.endpoint == 'home' %}uk-active{% endif %}">
+						<a href="{{ url_for('home') }}">Bosh sahifa</a>
+					</li>
+				</ul>
+			</div>
+			<div class="uk-navbar-right">
+				<ul class="uk-navbar-nav">
+					{% if not current_user.is_authenticated %}
+						<li class="{% if request.endpoint == 'register' %}uk-active{% endif %}">
+							<a href="{{ url_for('register') }}">Roʻyxatdan oʻtish</a>
+						</li>
+						<li class="{% if request.endpoint == 'login' %}uk-active{% endif %}">
+							<a href="{{ url_for('login') }}">Kirish</a>
+						</li>
+					{% else %}
+						<li class="{% if request.endpoint == 'logout' %}uk-active{% endif %}">
+							<a href="{{ url_for('logout') }}">Chiqish</a>
+						</li>
+						<li class="{% if request.endpoint == 'account' %}uk-active{% endif %}">
+							<a href="{{ url_for('account') }}">Hisob</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

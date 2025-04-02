@@ -1,0 +1,33 @@
+<!-- login.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Kirish{% endblock %}
+
+{% block content %}
+<div class="uk-flex uk-flex-center">
+	<form method="post" class="uk-width-1-2 uk-background-muted uk-padding uk-border uk-form-stacked">
+		{{ form.hidden_tag() }}
+		<fieldset class="uk-fieldset">
+			<legend class="uk-legend">Kirish</legend>
+			<div class="uk-margin">
+				{{ form.email.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.email(class="uk-input", placeholder="Elektron pochtangizni kiriting") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.password.label(class="uk-form-label") }}
+				<div class="uk-form-controls">
+					{{ form.password(class="uk-input", placeholder="Parolingizni kiriting") }}
+				</div>
+			</div>
+			<div class="uk-margin">
+				{{ form.submit(class="uk-button uk-button-primary") }}
+			</div>
+		</fieldset>
+		<p>Hisobingiz yoʻqmi? <a href="{{ url_for('register') }}">Roʻyxatdan oʻtish</a></p>
+	</form>
+</div>
+{% endblock %}
+
